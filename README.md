@@ -1,11 +1,17 @@
-# stats220
+# My stats 220 reposotory 🖥️
 
-This is my repo for STATS 220. 
+### A little about *me*:
 
-A little about me:
+- I'm currently undertaking a degree in **Computer Science**
+- I enjoy **reading**, **crossfit** and playing **video games**
 
-- I am undertaking a degree in Computer Science
-- I am taking STATS 220 because i thought it would be useful for jobs
-- I am interested in learning about stats
+### Why I'm interested in *statistics*:
+1. I think statistics will give me a great skill set that I will use in the future
+2. I enjoy gathering data and presenting it in a pretty way
+3. Learning more about statistics will hopefully give me more opportunities in the future
 
-A meme that captures how I currently feel about my university studies is ![](https://media.tenor.com/QxCmsjXCAVAAAAAm/what.webp)
+This is how I feel at during the STATS 220 lectures
+
+![](https://media1.tenor.com/m/ds1EgijX6OIAAAAd/monkey-keyboard.gif)
+
+This is where I got my GIF: https://tenor.com/
