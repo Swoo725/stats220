@@ -10,7 +10,7 @@
 2. I enjoy gathering data and presenting it in a pretty way
 3. Learning more about statistics will hopefully give me more opportunities in the future
 
-This is how I feel at during the STATS 220 lectures
+This is how I feel during the STATS 220 lectures
 
 ![](https://media1.tenor.com/m/ds1EgijX6OIAAAAd/monkey-keyboard.gif)
 
