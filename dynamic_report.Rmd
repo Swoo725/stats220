@@ -11,12 +11,15 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, fig
 ```{css}
 body {
   text-align: center;
-  background-color: #ffe6f3;
+  background-color: #ffefff;
   font-family: Candara
+    
+  border: 10px solid #ff66b3;
+  margin: 20px;  
 }
 
 h2 {
-  color: #ffe6f3;
+  color: #ffefff;
   margin-top: 40px;
   background-color: #ff66b3;
 }
