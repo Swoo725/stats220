@@ -1,0 +1,101 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width = 6, fig.height = 4)
+
+```
+
+```{css}
+body {
+  text-align: center;
+  background-color: #ffe6f3;
+  font-family: Candara
+}
+
+h2 {
+  color: #ffe6f3;
+  margin-top: 40px;
+  background-color: #ff66b3;
+}
+
+```
+
+## TikTok Ad Engagement Analysis
+
+I chose to analyse what was advertised on TikTok.
+
+Over the course of my logging period I tracked the topic of the ad, the amount of time spent watching the ad and if the advertisers TikTok account was accidentally opened.
+
+Below I have graphs showing the number of ads encountered per topic (Fig.1), and the mean watch time per ad topic (Fig.2).
+
+```{r}
+library(tidyverse)
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQfV2kGJsFLMRpegD8AiXaSp60rygqs1_tbH2X1HfZhR9aRYcvQQw4ZWUjN3Uu_ErM1H1KWIG_1mqxw/pub?gid=2136539218&single=true&output=csv")
+
+latest_data <- logged_data %>%
+  rename(
+    topic = "What was the main topic of the ad?",
+    watch_time = "How long did you watch the ad in seconds?",
+    accidental_swipe = "Did you accidentally open the advertisers account?"
+  ) %>%
+  select(topic, watch_time, accidental_swipe) %>%
+  mutate(
+    topic = factor(topic, levels = c(
+      "Beauty", "Clothing", "Food", "Technology", "Other"
+    ))
+  )
+
+mean_time <- latest_data$watch_time %>%
+  mean() %>%
+  round(1)
+
+total_watch_time <- latest_data$watch_time %>%
+  sum()
+
+total_responses <- latest_data %>%
+  nrow()
+
+ggplot(data = latest_data) +
+  geom_bar(aes(topic, fill = topic)) +
+  labs(title = "Number of advertisements per topic",
+       x = "Ad topic",
+       y = "Number of ads",
+       caption = "Fig 1: Total ads observed per topic") +
+  theme_minimal() +
+  scale_fill_manual(values = c(
+    "Beauty" = "#ffcce6",
+    "Clothing" = "#ff80c1",
+    "Food" = "#ff339c",
+    "Technology" = "#e60077",
+    "Other" = "#99004f"
+  ))
+
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = topic, y = watch_time, fill = topic), stat = "summary", fun = "mean") +
+  labs(title = "Mean watch time per ad topic",
+       x = "Ad topic",
+       y = "Mean watch time (seconds)",
+       caption = "Fig 2: Mean watch time of ads per topic") +
+  theme_minimal() +
+  scale_fill_manual(values = c(
+    "Beauty" = "#ffcce6",
+    "Clothing" = "#ff80c1",
+    "Food" = "#ff339c",
+    "Technology" = "#e60077",
+    "Other" = "#99004f"
+  ))
+
+```
+
+
+On average, a TikTok ad is watched for **`r mean_time` seconds**.
+
+In total, the time spent watching TikTok ads is **`r total_watch_time` seconds**.
+
+The total number of responses is **`r total_responses`**.
+
+![This is how I felt gathering data](https://c.tenor.com/Xm1L7-otNRwAAAAC/tenor.gif)
